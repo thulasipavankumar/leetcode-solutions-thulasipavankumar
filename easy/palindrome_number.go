@@ -1,21 +1,24 @@
 package main
+
 import "fmt"
 
-func main(){
+func main() {
 	fmt.Println("Hello World!")
-	fmt.Printf("%v,%v",isPalindrome(121),isPalindrome(567865))
+	fmt.Printf("%v,%v", isPalindrome(121), isPalindrome(567865))
 }
 func isPalindrome(x int) bool {
-	if x < 0 
-    str := fmt.Sprintf("%d",x)
+	if x < 0 {
+		return false
+	}
+	str := fmt.Sprintf("%d", x)
 	reverse := Reverse(str)
-	return (str==reverse)
+	return (str == reverse)
 }
 
 func Reverse(s string) string {
-    r := []rune(s)
-    for i, j := 0, len(r)-1; i < len(r)/2; i, j = i+1, j-1 {
-        r[i], r[j] = r[j], r[i]
-    }
-    return string(r)
+	r := []rune(s)
+	for i, j := 0, len(r)-1; i < len(r)/2; i, j = i+1, j-1 {
+		r[i], r[j] = r[j], r[i]
+	}
+	return string(r)
 }
